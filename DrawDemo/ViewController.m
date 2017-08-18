@@ -37,7 +37,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 40;
+    return 6;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -45,7 +45,7 @@
     switch (index) {
         case 0:
         {
-            TableViewCell1 *cell = [TableViewCell1 cellWithTableView:tableView];
+            TableViewCell1 *cell = [[[NSBundle mainBundle]loadNibNamed:NSStringFromClass([TableViewCell1 class]) owner:nil options:nil] lastObject];
             cell.textL.text = @"按钮存在背景图片";
 //            [cell.btn setImage:[UIImage imageNamed:@"dog2"] forState:UIControlStateNormal];
             [cell.btn setBackgroundImage:[UIImage imageNamed:@"dog2"] forState:UIControlStateNormal];
@@ -59,6 +59,7 @@
             TableViewCell1 *cell = [TableViewCell1 cellWithTableView:tableView];
             cell.textL.text = @"按钮没有背景图片";
 //            [cell.btn setImage:[UIImage imageNamed:@"dog2"] forState:UIControlStateNormal];
+            [cell.btn setTitle:@"我是Button" forState:UIControlStateNormal];
             [cell.btn setImage:nil forState:UIControlStateNormal];
             cell.btn.backgroundColor = [UIColor greenColor];
             return cell;
